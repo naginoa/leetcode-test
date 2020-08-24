@@ -25,3 +25,19 @@ C++
             (这个否则就是对上一把处理过的中间结点进行处理)
             加入到序列结构中
             然后删除该节点 
+            
+### 104. 二叉树的最大深度
+
+```
+class Solution {
+public:
+    int maxDepth(TreeNode* root) {
+        if (root == nullptr) return 0;
+        if (root->left == nullptr && root->right == nullptr) return 1;
+        return max(maxDepth(root->left), maxDepth(root->right)) + 1;
+    }
+};
+```
+
+其中第二个判断句如果加上的话可以超过99.94%的运行时间，去掉的话运行时间会增大约四倍，
+虽然代码量少了，但运算量增大，原因应该是一个需要计算空点的层数，一个不需要计算空点层数。
