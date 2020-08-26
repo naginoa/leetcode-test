@@ -13,6 +13,7 @@ void dfs(TreeNode* root, int level, vector <vector <int>> &res){
     if (root==nullptr) return ;
     // 深度优先的层次遍历 二维vector 用递归来做，递归一次则是进入下一层，所以用level+1
     if (res.size() == level) res.resize(level+1);
+    // 把每一层中的val值加入到该二维数组中
     res[level].push_back(root->val);
     dfs(root->left, level+1, res);
     dfs(root->right, level+1, res);
