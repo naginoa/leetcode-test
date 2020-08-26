@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <queue>
 using namespace std;
 class TreeNode{
 public:
@@ -13,10 +14,27 @@ void dfs(TreeNode* root, int level, vector <vector <int>> &res){
     if (root==nullptr) return ;
     // 深度优先的层次遍历 二维vector 用递归来做，递归一次则是进入下一层，所以用level+1
     if (res.size() == level) res.resize(level+1);
-    // 把每一层中的val值加入到该二维数组中
     res[level].push_back(root->val);
     dfs(root->left, level+1, res);
     dfs(root->right, level+1, res);
+}
+vector <vector <int>> bfs(TreeNode* root){
+    vector <vector <int>> res;
+    if (root==nullptr) return res;
+    queue <TreeNode *> q;
+    q.push(root);
+    while(!q.empty()){
+        int s = q.size();
+        res.resize(res.size()+1);
+        for(int i=0;i<s;i++){
+            TreeNode* t = q.front();
+            q.pop();
+            res[res.size()-1].push_back(t->val);
+            if (t->left)q.push(t->left);
+            if (t->right)q.push(t->right);
+        }
+    }
+    return res;
 }
 int main()
 {
@@ -30,6 +48,15 @@ int main()
     vector <vector <int>> res;
     dfs(root, 0, res);
     for(vector <vector <int>> :: iterator it=res.begin();it!=res.end();it++){
+        for(int j=0;j<(*it).size();j++){
+            cout<<(*it)[j]<<" ";
+        }
+        cout<<endl;
+    }
+
+    vector <vector <int>> res2;
+    res2 = bfs(root);
+    for(vector <vector <int>> :: iterator it=res2.begin();it!=res2.end();it++){
         for(int j=0;j<(*it).size();j++){
             cout<<(*it)[j]<<" ";
         }
