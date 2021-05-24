@@ -9,6 +9,8 @@
 
 一个值最大的条件就是这四块的内容都为1，假设这是第dis轮迭代，那么该dp[i][j]上的临近四个点的值都需要是dis的平方,那么该值等于(dis+1)的平方,否则等于原来的值
 
+并且该值一定要存在原数组的左上角，这样在下次和下轮迭代中就不会出现重叠。
+
 ```
 class Solution:
     def maximalSquare(self, matrix: List[List[str]]) -> int:
