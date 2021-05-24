@@ -5,6 +5,9 @@
 
 ![image](https://user-images.githubusercontent.com/28385060/119346630-0a2d7180-bccd-11eb-99c4-1450691cd6fc.png)
 
+![image](https://user-images.githubusercontent.com/28385060/119347272-e1f24280-bccd-11eb-835d-2e1e25c03b1a.png)
+
+
 ```
 class Solution:
     def maximalSquare(self, matrix: List[List[str]]) -> int:
