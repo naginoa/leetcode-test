@@ -7,6 +7,7 @@
 
 ![image](https://user-images.githubusercontent.com/28385060/119347272-e1f24280-bccd-11eb-835d-2e1e25c03b1a.png)
 
+一个值最大的条件就是这四块的内容都为1，假设这是第dis轮迭代，那么该dp[i][j]上的临近四个点的值都需要是dis的平方,那么该值等于(dis+1)的平方,否则等于原来的值
 
 ```
 class Solution:
