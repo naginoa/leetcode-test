@@ -38,3 +38,5 @@ class Solution:
             
         return res
 ```
+
+## [555] 携程春招笔试题6.10第一道题 类似力扣55
