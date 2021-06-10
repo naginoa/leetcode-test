@@ -46,3 +46,19 @@ class Solution:
 
 ![image](https://user-images.githubusercontent.com/28385060/121553784-2dce1700-ca44-11eb-8e19-08eb9a49cb2b.png)
 
+代码如下:
+
+```
+nums = [1, 3, 4, 0, 6, 2, 2, 4, 5]
+# 默认到该点的初始方式都为1
+dp = [0 for i in range(len(nums)+1)]
+#dp[1] = 1这个初始化想不到
+dp[1] = 1
+for i in range(len(nums)):
+    for j in range(1, nums[i]+1):
+        if i+j < len(nums)+1:
+            dp[i+j] += dp[i]
+#print(dp)
+print(dp[-1])
+```
+
